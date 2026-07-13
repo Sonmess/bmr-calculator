@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bmr-calculator": "workspace:*",
     "vue": "^3.5.39"
   },
   "devDependencies": {

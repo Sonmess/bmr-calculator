@@ -10,6 +10,9 @@ importers:
 
   apps/site:
     dependencies:
+      bmr-calculator:
+        specifier: workspace:*
+        version: link:../../packages/bmr-calculator
       vue:
         specifier: ^3.5.39
         version: 3.5.39(typescript@6.0.3)
