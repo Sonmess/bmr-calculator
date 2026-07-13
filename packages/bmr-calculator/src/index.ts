@@ -5,6 +5,11 @@
 
 export { default as BmrCalculator } from './components/BmrCalculator.vue'
 
-// Phase 1: once you write the pure formula functions, export them here too, e.g.
-// export { mifflinStJeor, harrisBenedict, katchMcArdle } from './core/formulas'
-// export type { BmrInput, Sex, Formula } from './core/types'
+// Pure calculation logic — reusable without the component.
+export {
+  mifflinStJeor,
+  harrisBenedict,
+  katchMcArdle,
+  calculateBmr,
+} from './core/formulas'
+export type { BmrInput, Sex, Formula } from './core/types'
