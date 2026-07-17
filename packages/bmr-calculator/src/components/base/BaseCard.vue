@@ -19,8 +19,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--brm-flex-gap);
-  border-radius: var(--bmr-radius-big);
-  padding: var(--bmr-padding-big);
+  gap: var(--_gap-small);
+  border-radius: var(--_radius-small);
+  padding: var(--_padding-big);
+  box-shadow: var(--_shadow);
+  background-color: var(--_bg-surface);
+  border: 1px solid var(--_border-color);
+}
+
+.base-card__headline {
+  font-family: var(--_font-heading);
 }
 </style>

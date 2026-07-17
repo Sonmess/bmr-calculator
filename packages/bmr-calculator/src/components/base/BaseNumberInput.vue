@@ -28,6 +28,6 @@ const inputId = computed(() => 'input-group-' + props.name);
 .base-number-input {
   display: flex;
   flex-direction: column;
-  gap: var(--bmr-flex-gap-small);
+  gap: var(--_gap-small);
 }
 </style>

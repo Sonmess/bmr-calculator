@@ -10,8 +10,9 @@
 import { calculateBmr } from '../core/formulas';
 import type { Formula, BmrInput } from '../core/types';
 import { ref, computed, reactive } from 'vue';
-import BaseCard from './base/BaseCard.vue';
-import BaseNumberInput from './base/BaseNumberInput.vue';
+import CardInfo from './cards/CardInfo.vue';
+import CardResult from './cards/CardResult.vue';
+import CardInput from './cards/CardInput.vue';
 
 const baseCardHeadline = 'Calculate base metabolic rate';
 const formula = ref<Formula>('mifflin');
@@ -47,65 +48,73 @@ const needsBodyFat = computed(() => {
 
 <template>
   <main class="bmr-calculator">
-    <section class="bmr-calculator__input">
-      <base-card>
-        <template #heading>
-          <h2>{{ baseCardHeadline }}</h2>
-        </template>
-
-        <template #body>
-          <form>
-            <base-number-input label="Age" name="age" v-model="input.age" />
-            <base-number-input
-              label="Weight"
-              name="weight"
-              v-model="input.weightKg"
-            />
-            <base-number-input
-              label="Height"
-              name="height"
-              v-model="input.heightCm"
-            />
-          </form>
-        </template>
-      </base-card>
-    </section>
-
-    <section class="bmr-calculator__result">
-      <base-card>
-        <template #heading>
-          <h2>Results</h2>
-        </template>
-
-        <template #body>
-          <p>Base metabolic rate: {{ result }}</p>
-        </template>
-      </base-card>
-    </section>
+    <card-info :headline="baseCardHeadline" />
+    <card-input :input="input" />
+    <card-result :result="result" />
   </main>
 </template>
 
 <style scoped>
 .bmr-calculator {
-  /* Theme hooks: host apps override these CSS variables to restyle the widget.
-     Always provide a fallback so the component looks right with zero config. */
+  /* fonts */
+  --_font-heading: var(
+    --bmr-font-heading,
+    'Space Grotesk',
+    system-ui,
+    sans-serif
+  );
+  --_font-text: var(--bmr-font-text, 'Inter', system-ui, sans-serif);
 
-  --bmr-radius-big: 2rem;
-  --bmr-radius-small: 1rem;
-  --bmr-padding-big: 2rem;
-  --bmr-padding-small: 1rem;
-  --bmr-bg-color: #fff;
-  --bmr-color: #1f2937;
-  --bmr-ff: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --bmr-flex-gap-big: 2rem;
-  --bmr-flex-gap-small: 1rem;
-  --bmr-border-color: white;
+  /* backgrounds */
+  --_bg-page: var(--bmr-bg-page, #0d1117);
+  --_bg-surface: var(--bmr-bg-surface, #161b22);
+  --_bg-surface-2: var(--bmr-bg-surface-2, #1c2128);
 
-  color: var(--bmr-color);
-  background: var(--bmr-bg-color);
-  font-family: var(--bmr-ff);
-  border-radius: var(--bmr-radius-big);
-  padding: var(--bmr-padding-big);
-  border: 1px solid var(--bmr-border-color);
+  /* text / accent colors */
+  --_color-primary: var(--bmr-color-primary, #e6edf3);
+  --_color-secondary: var(--bmr-color-secondary, #8b949e);
+  --_color-accent: var(--bmr-color-accent, #58a6ff);
+  --_color-positive: var(--bmr-color-positive, #3fb950);
+  --_color-danger: var(--bmr-color-danger, #f85149);
+  --_color-warning: var(--bmr-color-warning, #d29922);
+
+  /* borders / radii / shadow */
+  --_border-color: var(--bmr-border-color, #30363d);
+  --_radius-big: var(--bmr-radius-big, 2rem);
+  --_radius-small: var(--bmr-radius-small, 1rem);
+  --_shadow: var(
+    --bmr-shadow,
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.24)
+  );
+
+  /* spacing */
+  --_padding-big: var(--bmr-padding-big, 2rem);
+  --_padding-small: var(--bmr-padding-small, 1rem);
+  --_gap-big: var(--bmr-gap-big, 2rem);
+  --_gap-small: var(--bmr-gap-small, 1rem);
+
+  /* ---- component styles: consume ONLY the private --_* tokens ---- */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--_gap-big);
+  color: var(--_color-primary);
+  background: var(--_bg-page);
+  font-family: var(--_font-text);
+  border: 1px solid var(--_border-color);
+  border-radius: var(--_radius-big);
+  padding: var(--_padding-big);
+}
+
+.bmr-calculator p {
+  padding: 0;
+  margin: 0;
+}
+
+.bmr-calculator h2 {
+  font-size: 1.5rem;
+  line-height: 1.25;
 }
 </style>
