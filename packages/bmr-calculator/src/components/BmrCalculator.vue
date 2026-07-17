@@ -13,6 +13,13 @@ import CardInput from './cards/CardInput.vue';
 import { provideBmrForm } from '../composables/useBmrForm';
 
 const baseCardHeadline = 'Calculate base metabolic rate';
+const { showInfo } = defineProps({
+  showInfo: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
+});
 
 // Create the shared form state and provide it to every card below.
 // The cards reach it via useBmrForm() — no props drilled, no props mutated.
@@ -21,7 +28,7 @@ provideBmrForm();
 
 <template>
   <main class="bmr-calculator">
-    <card-info :headline="baseCardHeadline" />
+    <card-info v-if="showInfo" :headline="baseCardHeadline" />
     <card-input />
     <card-result />
   </main>
