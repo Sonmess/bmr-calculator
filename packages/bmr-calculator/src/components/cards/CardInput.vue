@@ -27,9 +27,9 @@
 <script setup lang="ts">
 import BaseCard from '../base/BaseCard.vue';
 import BaseNumberInput from '../base/BaseNumberInput.vue';
-import type { BmrInput } from '../../core/types';
+import { useBmrForm } from '../../composables/useBmrForm';
 
-defineProps<{
-  input: BmrInput;
-}>();
+// Shared state from the widget. `input` is the reactive object itself (not a
+// prop), so binding v-model to its fields is legitimate two-way editing.
+const { input } = useBmrForm();
 </script>

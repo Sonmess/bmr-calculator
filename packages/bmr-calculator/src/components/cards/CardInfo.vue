@@ -1,5 +1,5 @@
 <template>
-  <section class="brm-calculator__info">
+  <section class="bmr-calculator__info">
     <base-card>
       <template #heading>
         <h2>{{ headline }}</h2>

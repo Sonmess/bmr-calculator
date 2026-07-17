@@ -30,4 +30,16 @@
 .base-card__headline {
   font-family: var(--_font-heading);
 }
+
+.base-card :deep(p) {
+  padding: 0;
+  margin: 0;
+}
+
+.base-card :deep(h2) {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  padding: 0;
+  margin: 0;
+}
 </style>

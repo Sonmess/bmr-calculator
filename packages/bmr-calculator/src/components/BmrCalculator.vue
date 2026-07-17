@@ -7,50 +7,23 @@
 //
 // Keep it SSR-safe for Nuxt: no window/document access here or at module top
 // level — only inside onMounted or event handlers.
-import { calculateBmr } from '../core/formulas';
-import type { Formula, BmrInput } from '../core/types';
-import { ref, computed, reactive } from 'vue';
 import CardInfo from './cards/CardInfo.vue';
 import CardResult from './cards/CardResult.vue';
 import CardInput from './cards/CardInput.vue';
+import { provideBmrForm } from '../composables/useBmrForm';
 
 const baseCardHeadline = 'Calculate base metabolic rate';
-const formula = ref<Formula>('mifflin');
 
-const input = reactive<BmrInput>({
-  weightKg: 70,
-  heightCm: 175,
-  age: 30,
-  sex: 'male',
-  bodyFatPct: 22,
-});
-
-const result = computed(() => {
-  if (!isValid.value) {
-    return null;
-  }
-
-  return Math.round(calculateBmr(formula.value, input));
-});
-
-const isValid = computed(() => {
-  // insert validation here
-  if (needsBodyFat.value) {
-    return false;
-  }
-  return true;
-});
-
-const needsBodyFat = computed(() => {
-  return formula.value === 'katch-mcardle';
-});
+// Create the shared form state and provide it to every card below.
+// The cards reach it via useBmrForm() — no props drilled, no props mutated.
+provideBmrForm();
 </script>
 
 <template>
   <main class="bmr-calculator">
     <card-info :headline="baseCardHeadline" />
-    <card-input :input="input" />
-    <card-result :result="result" />
+    <card-input />
+    <card-result />
   </main>
 </template>
 
@@ -106,15 +79,5 @@ const needsBodyFat = computed(() => {
   border: 1px solid var(--_border-color);
   border-radius: var(--_radius-big);
   padding: var(--_padding-big);
-}
-
-.bmr-calculator p {
-  padding: 0;
-  margin: 0;
-}
-
-.bmr-calculator h2 {
-  font-size: 1.5rem;
-  line-height: 1.25;
 }
 </style>

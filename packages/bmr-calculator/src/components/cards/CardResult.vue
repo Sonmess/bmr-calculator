@@ -14,10 +14,7 @@
 
 <script setup lang="ts">
 import BaseCard from '../base/BaseCard.vue';
+import { useBmrForm } from '../../composables/useBmrForm';
 
-interface CardResultProps {
-  result: number | null;
-}
-
-defineProps<CardResultProps>();
+const { result } = useBmrForm();
 </script>
