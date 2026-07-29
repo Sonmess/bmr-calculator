@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--_gap-small);
+  gap: var(--_gap-big);
   border-radius: var(--_radius-small);
   padding: var(--_padding-big);
   box-shadow: var(--_shadow);

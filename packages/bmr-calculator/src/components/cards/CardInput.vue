@@ -18,6 +18,11 @@
             name="height"
             v-model="input.heightCm"
           />
+          <base-gender-select
+            label="Gender"
+            name="gender"
+            v-model="input.gender"
+          />
         </form>
       </template>
     </base-card>
@@ -27,6 +32,7 @@
 <script setup lang="ts">
 import BaseCard from '../base/BaseCard.vue';
 import BaseNumberInput from '../base/BaseNumberInput.vue';
+import BaseGenderSelect from '../base/BaseGenderSelect.vue';
 import { useBmrForm } from '../../composables/useBmrForm';
 
 // Shared state from the widget. `input` is the reactive object itself (not a

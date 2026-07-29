@@ -57,7 +57,7 @@ const inputId = computed(() => 'input-group-' + props.name);
   border-radius: var(--_radius-small);
   padding: var(--_padding-small);
   outline: 0;
-  font-size: 1rem;
+  font-size: 1.375rem;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -78,7 +78,8 @@ const inputId = computed(() => 'input-group-' + props.name);
   .base-number-input__label,
 .base-number-input:has(.base-number-input__field:not(:placeholder-shown))
   .base-number-input__label {
-  transform: translateY(-38px) scale(0.8);
+  top: 0;
+  transform: translateY(-50%) scale(0.8);
   color: var(--_color-accent);
   background-color: var(--_bg-surface-2);
   border: 1px solid var(--_color-accent);

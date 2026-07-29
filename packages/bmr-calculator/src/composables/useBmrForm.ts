@@ -40,7 +40,7 @@ function createBmrForm(): BmrForm {
     weightKg: 70,
     heightCm: 175,
     age: 30,
-    sex: 'male',
+    gender: 'male',
     bodyFatPct: 22,
   });
 
