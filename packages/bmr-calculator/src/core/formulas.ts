@@ -4,7 +4,7 @@
 // Keeping these pure (no side effects, no reliance on outside state) is what
 // makes them trivial to unit-test and safe to reuse anywhere, including Nuxt SSR.
 
-import type { BmrInput, Formula } from './types'
+import type { BmrInput, Formula } from './types';
 
 /**
  * Mifflin-St Jeor (1990) — the modern default, generally most accurate for the
@@ -12,9 +12,14 @@ import type { BmrInput, Formula } from './types'
  *   men:   10·kg + 6.25·cm − 5·age + 5
  *   women: 10·kg + 6.25·cm − 5·age − 161
  */
-export function mifflinStJeor({ weightKg, heightCm, age, gender }: BmrInput): number {
-  const base = 10 * weightKg + 6.25 * heightCm - 5 * age
-  return gender === 'male' ? base + 5 : base - 161
+export function mifflinStJeor({
+  weightKg,
+  heightCm,
+  age,
+  gender,
+}: BmrInput): number {
+  const base = 10 * weightKg + 6.25 * heightCm - 5 * age;
+  return gender === 'male' ? base + 5 : base - 161;
 }
 
 /**
@@ -22,10 +27,15 @@ export function mifflinStJeor({ weightKg, heightCm, age, gender }: BmrInput): nu
  *   men:   88.362 + 13.397·kg + 4.799·cm − 5.677·age
  *   women: 447.593 +  9.247·kg + 3.098·cm − 4.330·age
  */
-export function harrisBenedict({ weightKg, heightCm, age, gender }: BmrInput): number {
+export function harrisBenedict({
+  weightKg,
+  heightCm,
+  age,
+  gender,
+}: BmrInput): number {
   return gender === 'male'
     ? 88.362 + 13.397 * weightKg + 4.799 * heightCm - 5.677 * age
-    : 447.593 + 9.247 * weightKg + 3.098 * heightCm - 4.33 * age
+    : 447.593 + 9.247 * weightKg + 3.098 * heightCm - 4.33 * age;
 }
 
 /**
@@ -37,10 +47,10 @@ export function harrisBenedict({ weightKg, heightCm, age, gender }: BmrInput): n
  */
 export function katchMcArdle({ weightKg, bodyFatPct }: BmrInput): number {
   if (bodyFatPct == null) {
-    throw new Error('katchMcArdle requires bodyFatPct (0–100)')
+    throw new Error('katchMcArdle requires bodyFatPct (0–100)');
   }
-  const leanMassKg = weightKg * (1 - bodyFatPct / 100)
-  return 370 + 21.6 * leanMassKg
+  const leanMassKg = weightKg * (1 - bodyFatPct / 100);
+  return 370 + 21.6 * leanMassKg;
 }
 
 /**
@@ -51,14 +61,14 @@ export function katchMcArdle({ weightKg, bodyFatPct }: BmrInput): number {
 export function calculateBmr(formula: Formula, input: BmrInput): number {
   switch (formula) {
     case 'mifflin':
-      return mifflinStJeor(input)
+      return mifflinStJeor(input);
     case 'harris-benedict':
-      return harrisBenedict(input)
+      return harrisBenedict(input);
     case 'katch-mcardle':
-      return katchMcArdle(input)
+      return katchMcArdle(input);
     default: {
-      const exhaustiveCheck: never = formula
-      throw new Error(`Unknown formula: ${exhaustiveCheck}`)
+      const exhaustiveCheck: never = formula;
+      throw new Error(`Unknown formula: ${exhaustiveCheck}`);
     }
   }
 }

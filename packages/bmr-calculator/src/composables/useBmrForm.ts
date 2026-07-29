@@ -12,12 +12,24 @@ import { calculateBmr } from '../core/formulas';
 import type { BmrInput, Formula } from '../core/types';
 
 /**
+ * Same shape as BmrInput, but the measurements start empty and are filled in
+ * as the user types — `calculateBmr` still requires the strict, fully-numeric
+ * BmrInput, so `result` below only casts to it once `isValid` confirms every
+ * field is genuinely set.
+ */
+type BmrFormInput = Omit<BmrInput, 'weightKg' | 'heightCm' | 'age'> & {
+  weightKg?: number;
+  heightCm?: number;
+  age?: number;
+};
+
+/**
  * The shape of the shared BMR form state. One instance is created per widget
  * and shared with every card via provide/inject.
  */
 export interface BmrForm {
   /** Reactive user inputs (metric). Read and write freely from any card. */
-  input: BmrInput;
+  input: BmrFormInput;
   /** Currently selected formula. */
   formula: Ref<Formula>;
   /** True when the selected formula needs a body-fat %. */
@@ -36,12 +48,12 @@ export interface BmrForm {
 function createBmrForm(): BmrForm {
   const formula = ref<Formula>('mifflin');
 
-  const input = reactive<BmrInput>({
-    weightKg: 70,
-    heightCm: 175,
-    age: 30,
+  const input = reactive<BmrFormInput>({
+    weightKg: undefined,
+    heightCm: undefined,
+    age: undefined,
     gender: 'male',
-    bodyFatPct: 22,
+    bodyFatPct: undefined,
   });
 
   const needsBodyFat = computed(() => formula.value === 'katch-mcardle');
@@ -50,20 +62,25 @@ function createBmrForm(): BmrForm {
     // Number.isFinite rejects both NaN and the empty-string an emptied number
     // input produces, so `result` stays null until every field is genuinely set.
     const measurements = [input.weightKg, input.heightCm, input.age];
-    if (!measurements.every((n) => Number.isFinite(n) && n > 0)) {
+    if (
+      !measurements.every((n) => typeof n === 'number' && Number.isFinite(n) && n > 0)
+    ) {
       return false;
     }
-    
+
     if (needsBodyFat.value) {
       const bf = input.bodyFatPct;
-      return typeof bf === 'number' && Number.isFinite(bf) && bf >= 0 && bf < 100;
+      return (
+        typeof bf === 'number' && Number.isFinite(bf) && bf >= 0 && bf < 100
+      );
     }
     return true;
   });
 
   const result = computed<number | null>(() => {
     if (!isValid.value) return null;
-    return Math.round(calculateBmr(formula.value, input));
+    // Safe: isValid just confirmed every required field is a genuine number.
+    return Math.round(calculateBmr(formula.value, input as BmrInput));
   });
 
   return { input, formula, needsBodyFat, isValid, result };

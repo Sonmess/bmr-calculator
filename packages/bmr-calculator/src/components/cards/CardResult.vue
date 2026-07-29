@@ -1,5 +1,5 @@
 <template>
-  <base-card class="bmr-calculator__result">
+  <base-card v-if="result" class="bmr-calculator__result">
     <template #heading>
       <h2>Results</h2>
     </template>
