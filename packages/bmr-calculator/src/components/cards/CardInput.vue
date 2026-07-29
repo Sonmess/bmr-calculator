@@ -33,3 +33,11 @@ import { useBmrForm } from '../../composables/useBmrForm';
 // prop), so binding v-model to its fields is legitimate two-way editing.
 const { input } = useBmrForm();
 </script>
+
+<style scoped>
+.bmr-calculator__input form {
+  display: flex;
+  gap: var(--_gap-big);
+  flex-direction: column;
+}
+</style>

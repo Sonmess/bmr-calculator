@@ -34,46 +34,12 @@ provideBmrForm();
   </main>
 </template>
 
+<style>
+@import '../assets/vars.css';
+</style>
+
 <style scoped>
 .bmr-calculator {
-  /* fonts */
-  --_font-heading: var(
-    --bmr-font-heading,
-    'Space Grotesk',
-    system-ui,
-    sans-serif
-  );
-  --_font-text: var(--bmr-font-text, 'Inter', system-ui, sans-serif);
-
-  /* backgrounds */
-  --_bg-page: var(--bmr-bg-page, #0d1117);
-  --_bg-surface: var(--bmr-bg-surface, #161b22);
-  --_bg-surface-2: var(--bmr-bg-surface-2, #1c2128);
-
-  /* text / accent colors */
-  --_color-primary: var(--bmr-color-primary, #e6edf3);
-  --_color-secondary: var(--bmr-color-secondary, #8b949e);
-  --_color-accent: var(--bmr-color-accent, #58a6ff);
-  --_color-positive: var(--bmr-color-positive, #3fb950);
-  --_color-danger: var(--bmr-color-danger, #f85149);
-  --_color-warning: var(--bmr-color-warning, #d29922);
-
-  /* borders / radii / shadow */
-  --_border-color: var(--bmr-border-color, #30363d);
-  --_radius-big: var(--bmr-radius-big, 2rem);
-  --_radius-small: var(--bmr-radius-small, 1rem);
-  --_shadow: var(
-    --bmr-shadow,
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 8px 24px rgba(0, 0, 0, 0.24)
-  );
-
-  /* spacing */
-  --_padding-big: var(--bmr-padding-big, 2rem);
-  --_padding-small: var(--bmr-padding-small, 1rem);
-  --_gap-big: var(--bmr-gap-big, 2rem);
-  --_gap-small: var(--bmr-gap-small, 1rem);
-
   /* ---- component styles: consume ONLY the private --_* tokens ---- */
   display: flex;
   flex-flow: row wrap;
