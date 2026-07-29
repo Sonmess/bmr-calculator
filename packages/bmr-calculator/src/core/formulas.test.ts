@@ -13,10 +13,10 @@ const male: BmrInput = {
   weightKg: 80,
   heightCm: 180,
   age: 30,
-  sex: 'male',
+  gender: 'male',
   bodyFatPct: 20,
 };
-const female: BmrInput = { ...male, sex: 'female' };
+const female: BmrInput = { ...male, gender: 'female' };
 
 describe('mifflinStJeor', () => {
   // 10*80 + 6.25*180 - 5*30 + 5 = 800 + 1125 - 150 + 5
@@ -64,7 +64,7 @@ describe('katchMcArdle', () => {
       weightKg: 80,
       heightCm: 180,
       age: 30,
-      sex: 'male',
+      gender: 'male',
     };
     expect(() => katchMcArdle(noFat)).toThrow(/bodyFatPct/);
   });

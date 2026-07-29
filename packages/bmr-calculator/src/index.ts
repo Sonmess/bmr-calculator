@@ -12,4 +12,4 @@ export {
   katchMcArdle,
   calculateBmr,
 } from './core/formulas'
-export type { BmrInput, Sex, Formula } from './core/types'
+export type { BmrInput, Gender, Formula } from './core/types'

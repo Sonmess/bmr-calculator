@@ -12,9 +12,9 @@ import type { BmrInput, Formula } from './types'
  *   men:   10·kg + 6.25·cm − 5·age + 5
  *   women: 10·kg + 6.25·cm − 5·age − 161
  */
-export function mifflinStJeor({ weightKg, heightCm, age, sex }: BmrInput): number {
+export function mifflinStJeor({ weightKg, heightCm, age, gender }: BmrInput): number {
   const base = 10 * weightKg + 6.25 * heightCm - 5 * age
-  return sex === 'male' ? base + 5 : base - 161
+  return gender === 'male' ? base + 5 : base - 161
 }
 
 /**
@@ -22,15 +22,15 @@ export function mifflinStJeor({ weightKg, heightCm, age, sex }: BmrInput): numbe
  *   men:   88.362 + 13.397·kg + 4.799·cm − 5.677·age
  *   women: 447.593 +  9.247·kg + 3.098·cm − 4.330·age
  */
-export function harrisBenedict({ weightKg, heightCm, age, sex }: BmrInput): number {
-  return sex === 'male'
+export function harrisBenedict({ weightKg, heightCm, age, gender }: BmrInput): number {
+  return gender === 'male'
     ? 88.362 + 13.397 * weightKg + 4.799 * heightCm - 5.677 * age
     : 447.593 + 9.247 * weightKg + 3.098 * heightCm - 4.33 * age
 }
 
 /**
  * Katch-McArdle — based on lean body mass, so it needs body-fat % and ignores
- * sex, height and age.
+ * gender, height and age.
  *   BMR = 370 + 21.6 · leanMassKg,  where leanMassKg = kg · (1 − bodyFat%/100)
  *
  * @throws if bodyFatPct is not provided.
