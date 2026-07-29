@@ -22,6 +22,13 @@
           name="gender"
           v-model="input.gender"
         />
+        <base-formula-select label="Formula" name="formula" v-model="formula" />
+        <base-number-input
+          v-if="needsBodyFat"
+          label="Body fat %"
+          name="bodyFatPct"
+          v-model="input.bodyFatPct"
+        />
       </form>
     </template>
   </base-card>
@@ -31,11 +38,12 @@
 import BaseCard from '../base/BaseCard.vue';
 import BaseNumberInput from '../base/BaseNumberInput.vue';
 import BaseGenderSelect from '../base/BaseGenderSelect.vue';
+import BaseFormulaSelect from '../base/BaseFormulaSelect.vue';
 import { useBmrForm } from '../../composables/useBmrForm';
 
 // Shared state from the widget. `input` is the reactive object itself (not a
 // prop), so binding v-model to its fields is legitimate two-way editing.
-const { input } = useBmrForm();
+const { input, needsBodyFat, formula } = useBmrForm();
 </script>
 
 <style scoped>
