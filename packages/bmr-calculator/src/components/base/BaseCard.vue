@@ -1,5 +1,5 @@
 <template>
-  <div class="base-card">
+  <section class="base-card">
     <div class="base-card__headline">
       <slot name="heading" />
     </div>
@@ -9,7 +9,7 @@
     <div class="base-card__footer">
       <slot name="footer" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts"></script>
@@ -17,8 +17,8 @@
 <style scoped>
 .base-card {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  align-items: center;
   gap: var(--_gap-big);
   border-radius: var(--_radius-small);
   padding: var(--_padding-big);

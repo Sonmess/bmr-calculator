@@ -43,8 +43,6 @@ provideBmrForm();
   /* ---- component styles: consume ONLY the private --_* tokens ---- */
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   gap: var(--_gap-big);
   color: var(--_color-primary);
   background: var(--_bg-page);

@@ -70,6 +70,7 @@ const options: { value: Gender; label: string }[] = [
   border: 1px solid var(--_border-color);
   border-radius: var(--_radius-small);
   padding: var(--_padding-small);
+  padding-left: 4rem;
 }
 
 .base-gender-select__option {
@@ -78,7 +79,7 @@ const options: { value: Gender; label: string }[] = [
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.125rem 0.5rem;
+  padding: 0.25rem 0.5rem;
   min-width: 6rem;
   border: 1px solid transparent;
   border-radius: var(--_radius-fancy-small);

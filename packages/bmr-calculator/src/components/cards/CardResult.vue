@@ -1,15 +1,13 @@
 <template>
-  <section class="bmr-calculator__result">
-    <base-card>
-      <template #heading>
-        <h2>Results</h2>
-      </template>
+  <base-card class="bmr-calculator__result">
+    <template #heading>
+      <h2>Results</h2>
+    </template>
 
-      <template #body>
-        <p>Base metabolic rate: {{ result }}</p>
-      </template>
-    </base-card>
-  </section>
+    <template #body>
+      <p>Base metabolic rate: {{ result }}</p>
+    </template>
+  </base-card>
 </template>
 
 <script setup lang="ts">
@@ -18,3 +16,8 @@ import { useBmrForm } from '../../composables/useBmrForm';
 
 const { result } = useBmrForm();
 </script>
+
+<style scoped>
+.bmr-calculator__result {
+}
+</style>
