@@ -39,7 +39,3 @@
   --_gap-big: var(--bmr-gap-big, 2rem);
   --_gap-small: var(--bmr-gap-small, 1rem);
 }
-
-.test {
-  background-color: var(--_bg-surface);
-}

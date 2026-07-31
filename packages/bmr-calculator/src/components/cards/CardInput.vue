@@ -1,7 +1,7 @@
 <template>
   <base-card class="bmr-calculator__input">
     <template #heading>
-      <h2>Your details</h2>
+      <h2>🔰&nbsp;Your details</h2>
     </template>
 
     <template #body>
