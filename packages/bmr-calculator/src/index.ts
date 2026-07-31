@@ -13,3 +13,5 @@ export {
   calculateBmr,
 } from './core/formulas'
 export type { BmrInput, Gender, Formula } from './core/types'
+export { calculateTdee, ACTIVITY_LEVELS } from './core/activity'
+export type { ActivityLevel, ActivityLevelOption } from './core/activity'

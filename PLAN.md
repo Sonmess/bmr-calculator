@@ -48,7 +48,7 @@ bmr-calculator/
 - [ ] **Phase 2 — Component.** `BmrCalculator.vue`: formula selector, reactive inputs, computed result, per-formula field show/hide, validation, scoped themeable CSS. *Milestone: works in the site.*
 - [ ] **Phase 3 — HTML site.** `index.html` + `main.ts` mounts the component. *Milestone: `build` produces a static site to host.*
 - [ ] **Phase 4 — Library build & Nuxt-readiness.** Vite library mode (ESM, `vue` external, emit `.d.ts` via `vite-plugin-dts`). Set `package.json` `exports`/`types`/`files`. *Milestone: `dist/` is publishable.*
-- [ ] **Phase 5 (optional) — TDEE.** Activity-level multipliers for maintenance calories.
+- [x] **Phase 5 (optional) — TDEE.** Activity-level multipliers for maintenance calories.
 
 ## Open choices
 - pnpm (recommended) vs npm workspaces.
