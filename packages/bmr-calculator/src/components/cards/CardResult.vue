@@ -55,7 +55,7 @@ const { result } = useBmrForm();
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: var(--_gap-small);
+  gap: 1rem;
   font-weight: bold;
 }
 
@@ -87,7 +87,7 @@ const { result } = useBmrForm();
 
 .bmr-calculator__activity-table th,
 .bmr-calculator__activity-table td {
-  padding: var(--_padding-small);
+  padding: 0.75rem;
   padding-left: 0;
   text-align: left;
   border-bottom: 1px solid var(--_border-color);

@@ -19,9 +19,9 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: var(--_gap-big);
+  gap: var(--_gap-layout);
   border-radius: var(--_radius-small);
-  padding: var(--_padding-small);
+  padding: var(--_padding-layout);
   box-shadow: var(--_shadow);
   background-color: var(--_bg-surface);
   border: 1px solid var(--_border-color);
@@ -49,6 +49,6 @@
 .base-card__body {
   display: flex;
   flex-direction: column;
-  gap: var(--_gap-big);
+  gap: var(--_gap-layout);
 }
 </style>

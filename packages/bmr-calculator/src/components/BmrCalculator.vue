@@ -43,12 +43,12 @@ provideBmrForm();
   /* ---- component styles: consume ONLY the private --_* tokens ---- */
   display: flex;
   flex-flow: row wrap;
-  gap: var(--_gap-big);
+  gap: var(--_gap-layout);
   color: var(--_color-primary);
   background: var(--_bg-page);
   font-family: var(--_font-text);
   border: 1px solid var(--_border-color);
   border-radius: var(--_radius-big);
-  padding: var(--_padding-big);
+  padding: var(--_padding-layout);
 }
 </style>

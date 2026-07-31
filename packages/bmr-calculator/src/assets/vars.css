@@ -38,4 +38,13 @@
   --_padding-small: var(--bmr-padding-small, 1rem);
   --_gap-big: var(--bmr-gap-big, 2rem);
   --_gap-small: var(--bmr-gap-small, 1rem);
+  --_padding-layout: var(--_padding-small);
+  --_gap-layout: var(--_gap-small);
+}
+
+@media (min-width: 1024px) {
+  .bmr-calculator {
+    --_padding-layout: var(--_padding-big);
+    --_gap-layout: var(--_gap-big);
+  }
 }

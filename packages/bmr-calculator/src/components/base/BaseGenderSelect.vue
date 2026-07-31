@@ -69,7 +69,7 @@ const options: { value: Gender; label: string }[] = [
   background-color: var(--_bg-surface-2);
   border: 1px solid var(--_border-color);
   border-radius: var(--_radius-small);
-  padding: var(--_padding-small);
+  padding: 1rem;
   padding-left: 4rem;
 }
 

@@ -55,7 +55,7 @@ const inputId = computed(() => 'input-group-' + props.name);
   background-color: var(--_bg-surface-2);
   border: 1px solid var(--_border-color);
   border-radius: var(--_radius-small);
-  padding: var(--_padding-small);
+  padding: 1rem;
   outline: 0;
   font-size: 1.375rem;
   transition:

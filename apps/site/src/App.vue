@@ -14,7 +14,7 @@ import { BmrCalculator } from 'bmr-calculator';
 
 <style scoped>
 .site {
-  max-width: 800px;
+  max-width: calc(1200px + 2 * 1rem);
   margin: 0 auto;
   padding: 2rem 1rem;
   font-family: system-ui, sans-serif;

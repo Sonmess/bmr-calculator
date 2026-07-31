@@ -49,7 +49,7 @@ const { input, needsBodyFat, formula } = useBmrForm();
 <style scoped>
 .bmr-calculator__input form {
   display: flex;
-  gap: var(--_gap-big);
+  gap: 2rem;
   flex-direction: column;
 }
 </style>
